@@ -13,7 +13,7 @@
         let pincel = pantalla.getContext("2d");
         pincel.fillStyle = "lightgrey";
         pincel.fillRect(0,0,600,400);
-        var puedoDibujar = false;
+        var puedoDibujar = false; // Con el valor de esta variable podremos saber si el usuario está apretando o no el mouse.
         var tamanhoColor = 50;
         
         function dibujarCuadrado(x,y,ancho,alto,color){
@@ -40,6 +40,8 @@
                 }
             }
         }
+
+        //Esta función permite evaluar si el usuario está o no en la paleta de colores(area donde no podrá dibujar)
         function puedoDibujarArea(coordenadaX,coordenadaY){
             if((coordenadaX>=0 && coordenadaX<=(tamanhoColor*3+10)) && (coordenadaY>=0 && coordenadaY<=(tamanhoColor+10))){
                 return false;
@@ -56,6 +58,8 @@
                 pincel.fill();    
             }
         }
+
+        //Con esta funcion decidimos si el mouse dibuja o no los circulos.
         function capturarMovimientoMouse(evento){
             var x = evento.pageX - pantalla.offsetLeft;
             var y = evento.pageY - pantalla.offsetTop;
@@ -73,8 +77,8 @@
             puedoDibujar = false;
         }
 
-        pantalla.onmousedown = habilitarDibujo;
-        pantalla.onmouseup = deshabilitarDibujo;
+        pantalla.onmousedown = habilitarDibujo; // Cuando el usuario aprete el mouse, el valor de la variable puedoDibujar pasa a ser true.
+        pantalla.onmouseup = deshabilitarDibujo;//Cuando se suelte el mouse el valor de la variable puedoDibujar pasa a ser false.
     </script>
 </body>
 </html>

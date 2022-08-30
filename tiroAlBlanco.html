@@ -38,6 +38,7 @@
             x++
         }
 
+        //funcion donde le estamos dando valores aleatorios a las coordenadas x y y, para que los circulos se muestren de manera aleatoria.
         function objetivo(){
             this.xAleatorio = Math.floor(Math.random()*570);
             this.yAleatorio =  Math.floor(Math.random()*370);
@@ -47,8 +48,11 @@
             dibujarCircunferencia(xAleatorio,yAleatorio,radio,"red");
         }
 
+        //El uso de esta función permite que cada 1 sg se este actualizando la funcion objetivo.
         setInterval(objetivo,1000);
         
+
+        //con esta funcion verificamos que las coordenadas que nos de el usuario con el click estén en el radio del circulo menor.
         function disparar(evento){
             var x = evento.pageX - pantalla.offsetLeft;
             var y = evento.pageY - pantalla.offsetTop;
